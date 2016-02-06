@@ -16,16 +16,16 @@ class Brain:
         cur.execute('''create table if not exists events(
             id text primary key,
             title text,
-            notification_sent int(1)
+            notification_sent int(1),
+            enrollment_date timestamp,
+            date timestamp
         )''')
 
     @classmethod
     def create(cls, event):
         cur = Brain.connection.cursor()
         try:
-            cur.execute('insert into events values (?, ?, ?)', (
-                event.id, event.title, bool(event.notification_sent)
-            ))
+            cur.execute('insert into events values (:id, :title, :notification_sent, :enrollment_date, :date)', Mapper.to_row(event))
         except sqlite3.IntegrityError:
             return None
         Brain.connection.commit()
@@ -45,8 +45,13 @@ class Brain:
     def update(cls, event):
         cur = Brain.connection.cursor()
         row = Mapper.to_row(event)
-        cur.execute('update events set ' +
-            'id = :id, title = :title where id = :id', row
+        cur.execute('''update events set
+            id = :id,
+            title = :title,
+            date = :date,
+            enrollment_date = :enrollment_date,
+            notification_sent = :notification_sent
+            where id=:id''', row
         )
         Brain.connection.commit()
         return cur.lastrowid
