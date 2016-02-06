@@ -34,7 +34,7 @@ if __name__ == '__main__':
     def pull_events():
         log.info('Pulling events from %d feed(s).' % len(bro.feeds))
         bro.pull_events_from_feeds()
-        threading.Timer(10, pull_events).start()
+        threading.Timer(60 * 30, pull_events).start()
 
     # Push events to channel every 10 seconds
     def push_events():
