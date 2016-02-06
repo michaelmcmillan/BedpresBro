@@ -56,7 +56,7 @@ class TestBro(TestCase):
 
     @patch('bro.Bro.whats_enrolling')
     def test_enrolling_events_get_passed_onto_channels(self, whats_enrolling):
-        enrolling_event = MagicMock(id='id', title='title',  enrollment_date=in_fifteen_minutes)
+        enrolling_event = MagicMock(id='id', title='title', notification_sent=False, date=in_fifteen_minutes, enrollment_date=in_fifteen_minutes)
         whats_enrolling.return_value = [enrolling_event]
         facebook = MagicMock()
         Bro(channels=[facebook]).push_events_to_channels()
