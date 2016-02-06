@@ -1,9 +1,9 @@
 import threading
 from bro import Bro
 from brain import Brain
-from feeds import Online
 from logger import log
-from channels import Stdout
+from feeds import Online
+from channels import Facebook
 
 if __name__ == '__main__':
 
@@ -25,7 +25,7 @@ if __name__ == '__main__':
 
     bro = Bro()
     bro.feeds = [Online()]
-    bro.channels = [Stdout()]
+    bro.channels = [Facebook()]
 
     # Setup memory if it does not exist
     Brain.setup()
