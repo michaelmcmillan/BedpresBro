@@ -1,0 +1,16 @@
+[paths]
+current_directory = /tmp/bedpresbro
+
+[database]
+location = :memory:
+
+[log]
+location = ${paths:current_directory}/log
+
+[feeds]
+user-agent = BedpresBro 1.0
+
+[facebook]
+username = username
+password = password
+message_thread = some-thread-id 
