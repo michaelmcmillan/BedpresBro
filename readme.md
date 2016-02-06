@@ -3,6 +3,8 @@
 
 # BedpresBro
 [![Build Status](https://travis-ci.org/michaelmcmillan/BedpresBro.svg?branch=master)](https://travis-ci.org/michaelmcmillan/BedpresBro)
+[![Coverage Status](https://coveralls.io/repos/github/michaelmcmillan/BedpresBro/badge.svg?branch=master)](https://coveralls.io/github/michaelmcmillan/BedpresBro?branch=master)
+
 
 BedpresBro is the bro you have always wanted. It is a bot that that will notify you on Facebook when the enrollment date for for a bedpres is about to start.
 
