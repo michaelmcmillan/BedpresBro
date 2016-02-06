@@ -27,11 +27,11 @@ make test
 ````
 
 ### Configuration
-All configurations reside in the <code>config</code> file in the root directory. You must move <code>test/test_config</code> to <code>config</code>
+All configurations reside in the <code>config</code> file in the root directory. You must copy <code>test/test_config</code> to <code>config</code>
 before starting the system. Modify the settings to your needs.
 
 ````bash
-mv test/test_config config
+cp test/test_config config
 ````
 
 ### Start
