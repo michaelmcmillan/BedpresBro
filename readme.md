@@ -2,7 +2,7 @@
 ![Logo](http://i.imgur.com/PTOqoh1.png)
 
 # BedpresBro
-[![Build Status](https://travis-ci.com/BustByte/WaveKompetanse.no.svg?token=sdMqcqoJFoWCA7EYqt8T&branch=python)](https://travis-ci.com/BustByte/WaveKompetanse.no)
+[![Build Status](https://travis-ci.org/michaelmcmillan/BedpresBro.svg?branch=master)](https://travis-ci.org/michaelmcmillan/BedpresBro)
 
 BedpresBro is the bro you have always wanted. It is a bot that that will notify you on Facebook when the enrollment date for for a bedpres is about to start.
 
