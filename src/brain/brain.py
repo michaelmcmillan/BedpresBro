@@ -6,7 +6,8 @@ class Brain:
 
     connection = sqlite3.connect(
         configuration['database']['location'],
-        check_same_thread=False
+        check_same_thread=False,
+        detect_types=sqlite3.PARSE_DECLTYPES|sqlite3.PARSE_COLNAMES
     )
 
     @classmethod
