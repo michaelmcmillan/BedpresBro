@@ -26,7 +26,14 @@ class Brain:
     def create(cls, event):
         cur = Brain.connection.cursor()
         try:
-            cur.execute('insert into events values (:id, :title, :notification_sent, :enrollment_date, :date)', Mapper.to_row(event))
+            cur.execute('''
+                insert into events values (
+                    :id,
+                    :title,
+                    :notification_sent,
+                    :enrollment_date,
+                    :date
+                )''', Mapper.to_row(event))
         except sqlite3.IntegrityError:
             return None
         Brain.connection.commit()

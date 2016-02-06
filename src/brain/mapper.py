@@ -5,14 +5,10 @@ class Mapper:
     @classmethod
     def to_row(cls, event):
         row = {}
-        if event.id:
-            row['id'] = event.id
-        if event.title:
-            row['title'] = event.title
-        if event.date:
-            row['date'] = event.date
-        if event.enrollment_date:
-            row['enrollment_date'] = event.enrollment_date
+        row['id'] = event.id
+        row['title'] = event.title
+        row['date'] = event.date
+        row['enrollment_date'] = event.enrollment_date
         row['notification_sent'] = event.notification_sent
         return row
 
