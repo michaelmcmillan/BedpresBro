@@ -9,8 +9,8 @@ class Facebook:
         self.thread = configuration['facebook']['message_thread']
 
     def notify(self, event):
-        self.client = fbchat.Client(self.username, self.password)
-        self.client.send(self.thread,
+        client = fbchat.Client(self.username, self.password)
+        client.send(self.thread,
             'Påmelding til "%s" begynner om under 20 minutter.' % event.title
         )
         event.notification_sent = True
