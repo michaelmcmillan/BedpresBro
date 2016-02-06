@@ -6,4 +6,4 @@ class Stdout:
     def notify(self, event):
         print("Asked to send this event:")
         print(event.title)
-        event.notified = True
+        event.notification_sent = True
