@@ -1,4 +1,4 @@
-fixture = '''
+proper_fixture = '''
 <article data-date="2016-02-01T17:00:00+01:00" class="row">
 
     <div class="col-xs-12 col-sm-4 col-md-4 left-box">
