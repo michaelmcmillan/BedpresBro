@@ -40,5 +40,6 @@ class Online(Feed):
 
     def get_events(self):
         html = self.fetch_html()
-        events = self.parse_events(html)
+        events = self.parse_events(html) \
+            if html else []
         return events

@@ -2,7 +2,7 @@ import threading
 from bro import Bro
 from brain import Brain
 from logger import log
-from feeds import Online
+from feeds.formulas import Online
 from channels import Facebook
 
 if __name__ == '__main__':

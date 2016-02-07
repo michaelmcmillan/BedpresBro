@@ -1,7 +1,7 @@
 from unittest import TestCase, skip
 from unittest.mock import patch, MagicMock
 from datetime import datetime
-from feeds import Online
+from feeds.formulas import Online
 
 fixture = '''
 <article data-date="2016-02-01T17:00:00+01:00" class="row">
@@ -59,19 +59,25 @@ fixture = '''
 
 class TestBro(TestCase):
 
-    @patch('feeds.online.Online.fetch_html')
+    @patch('feeds.formulas.online.Online.fetch_html')
+    def test_returns_no_events_if_empty_response(self, fetch_html):
+        fetch_html.return_value = None
+        events = Online().get_events()
+        assert events == []
+
+    @patch('feeds.formulas.online.Online.fetch_html')
     def test_extracts_event_title_from_html(self, fetch_html):
         fetch_html.return_value = fixture
         event = Online().get_events()[0]
         assert event.title == 'KiD - Internet of Things'
 
-    @patch('feeds.online.Online.fetch_html')
+    @patch('feeds.formulas.online.Online.fetch_html')
     def test_extracts_event_date_from_html(self, fetch_html):
         fetch_html.return_value = fixture
         event = Online().get_events()[0]
         assert event.date == datetime(2016, 2, 1, 17)
 
-    @patch('feeds.online.Online.fetch_html')
+    @patch('feeds.formulas.online.Online.fetch_html')
     def test_extracts_event_enrollment_date_from_html(self, fetch_html):
         fetch_html.return_value = fixture
         event = Online().get_events()[0]
