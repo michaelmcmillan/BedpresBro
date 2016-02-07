@@ -15,6 +15,10 @@ class Online(Feed):
         return [self.convert_event(html_event) \
             for html_event in html_events]
 
+    def extract_id(self, html_event):
+        html_link = html_event.select('h1 > a')[0]
+        return html_link['href']
+
     def extract_date(self, html_event):
         html_date = html_event.select('.left-box')[0].parent['data-date']
         colons_removed = ''.join(html_date.rsplit(':', 1)).strip()
@@ -33,6 +37,7 @@ class Online(Feed):
 
     def convert_event(self, html_event):
         event = Event()
+        event.id = self.extract_id(html_event)
         event.title = self.extract_title(html_event)
         event.date = self.extract_date(html_event)
         event.enrollment_date = self.extract_enrollment_date(html_event)

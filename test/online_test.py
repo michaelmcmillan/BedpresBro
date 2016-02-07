@@ -13,6 +13,12 @@ class TestBro(TestCase):
         assert events == []
 
     @patch('feeds.formulas.online.Online.fetch_html')
+    def test_extracts_event_id_from_html(self, fetch_html):
+        fetch_html.return_value = fixture
+        event = Online().get_events()[0]
+        assert event.id == '/events/231/kid-internet-of-things/'
+
+    @patch('feeds.formulas.online.Online.fetch_html')
     def test_extracts_event_title_from_html(self, fetch_html):
         fetch_html.return_value = fixture
         event = Online().get_events()[0]
