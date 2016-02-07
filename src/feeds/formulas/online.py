@@ -4,7 +4,7 @@ from datetime import datetime
 
 class Online(Feed):
 
-    host = 'https://online.tefewffenu.no'
+    host = 'https://online.ntnu.no'
     feed = '/events/search/?query=&future=true&myevents=false'
 
     def fetch_html(self):
